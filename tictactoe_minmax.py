@@ -60,7 +60,8 @@ def possible_moves(l):
 def computer_move(l):
     blank_moves = possible_moves(l)
     k = []
-    k = random.choice(blank_moves)
+    if len(blank_moves)>0:
+        k = random.choice(blank_moves)
 
     l[k[0]][k[1]] = 'o'
     print("computer played its move!")
