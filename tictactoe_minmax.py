@@ -1,3 +1,4 @@
+
 def winning_conditions(l):
      winner = 'null'
      # if the row elemets are same 
@@ -124,7 +125,7 @@ def main():
              break
          elif winning_conditions(grid) == 'tie':
              print("="*25)
-             print("IT WAS TIE!!!!!!")
+             print("IT WAS A TIE, SORRY YOU CAN'T BEAT ME")
              print("="*25)
              break
 

@@ -44,6 +44,7 @@ scores = {
     'tie'  : 0
 }
 
+
 def minmax(l, depth, alpha, beta,isMaximizing):
     result = winning_conditions(l)
 
@@ -136,7 +137,7 @@ def main():
             break
         elif winning_conditions(grid) == 'tie':
             print("="*25)
-            print("IT WAS TIE!!!!!!")
+            print("IT WAS A TIE, SORRY YOU CAN'T BEAT ME")
             print("="*25)
             break
             
