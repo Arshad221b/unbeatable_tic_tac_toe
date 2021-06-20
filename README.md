@@ -4,7 +4,7 @@
 ![](ezgif.com-gif-maker.gif)
 
 ## Functionality
-There are two algorithms used for building this, 
+There are two algorithms, 
 1) [With MinMax Algorithm](https://github.com/Arshad221b/Connect_4/blob/master/tictactoe_minmax.py)
 2) [With MinMax and Alpha-Beta Pruning](https://github.com/Arshad221b/Connect_4/blob/master/tic_tac_toe_minmax.py)
 
