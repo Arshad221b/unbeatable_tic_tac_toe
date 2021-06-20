@@ -9,17 +9,18 @@ There are two algorithms used for building this,
 2) [With MinMax and Alpha-Beta Pruning](https://github.com/Arshad221b/Connect_4/blob/master/tic_tac_toe_minmax.py)
 
 ### Details about each methods 
-1) def winning_conditions(l)
+#### 1) def winning_conditions(l)
 It checks for each winning condition possible in the game (horizontal, vertical, digonal). It returns the score for winning, losing and tie conditons.
 
-2) def possible_moves()
+#### 2) def possible_moves()
 Checks all the blank spaces(available spaces) in the grid.
 
-3) def minmax()
-In Minmax:
+#### 3) def minmax()
+
+##### In Minmax:
 In simple terms, it checks for each condition in the game. There are two parts, first part is maximizing player (Human) and other is minimizing player. Both types first check for the blank spaces available, based on this, they check the score for each condition. The minimiser and maximizer play one after other. 
 
-In Minmax with alpha beta pruning:
+##### In Minmax with alpha beta pruning:
 In alpha beta pruning, we pass extra two parameters (alpha and beta). These parameters stores the best value at that depth in the tree. Alpha stores best value for maximizer and beta stores best value for minimiser. In each case, we don't have to solve the entire tree. If the value at that depth is not useful for the minimiser/maximizer that branch of tree never gets played and hence saves the computational cost. 
 
 ## References
