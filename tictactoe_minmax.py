@@ -5,32 +5,36 @@ grid = [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
 
 
 def winning_conditions(l):
+    winner = 'null'
 
     # if the row elemets are same 
     for i in range(len(l)):
         if   l[i][0] == l[i][1] and l[i][1] == l[i][2] and l[i][0] == 'x':
-            return 'player'
+            winner = 'player'
         elif l[i][0] == l[i][1] and l[i][1] == l[i][2] and l[i][0] == '0':
-            return 'comp'
+            winner = 'comp'
     
     # if the colun elements are same
     for i in range(0,1):
         if   l[0][i] == l[1][i] and l[1][i] == l[2][i] and l[0][i] == 'x':
-            return 'player'
+            winner = 'player'
         elif l[0][i] == l[1][i] and l[1][i] == l[2][i] and l[0][i] == 'o':
-            return 'comp'
+            winner = 'comp'
 
     # check the digonal condition
     if      l[0][0] == l[1][1]  and l[1][1] == l[2][2] and l[0][0] == 'x':
-        return 'player'
+        winner = 'player'
     elif    l[0][0] == l[1][1]  and l[1][1] == l[2][2] and l[0][0] == 'o':
-        return 'comp'
+        winner = 'comp'
     elif    l[0][2] == l[1][1]  and l[1][1] == l[2][0] and l[0][2] == 'x':
-        return 'player'
+        winner = 'player'
     elif    l[0][2] == l[1][1]  and l[1][1] == l[2][0] and l[0][2] == 'o':
-        return 'comp'
+        winner = 'comp'
 
-    return 'd'
+    if len(possible_moves(l))==0 and winner == 'null':
+        winner = 'tie' 
+    else:
+        return winner
  
 
 
@@ -40,13 +44,9 @@ def print_grid(l):
 
 
 def make_grid(row, column):
-    row = row - 1
-    column = column -1
-
     if grid[row][column] == '_':
         grid[row][column] = 'x'
 
-    print_grid(grid)
 
 
 def possible_moves(l):
@@ -58,14 +58,17 @@ def possible_moves(l):
     return(blank_moves)
 
 scores = {
-    'player' : 10,
-    'comp' : -10,
-    'd' : 0
+    'player'    : 1,
+    'comp'      : -1,
+    'tie'       : 0,
+    None        : 10
 }
 
 def minmax(l, depth, isMaximizing):
-    if winning_conditions(l) != 'null':
+    if winning_conditions(l) != "null":
         return(scores[winning_conditions(l)])
+    if winning_conditions(l) == None:
+        return(0)
 
     
     # Human player
@@ -76,7 +79,6 @@ def minmax(l, depth, isMaximizing):
             l[x][y] = 'x'
             score = minmax(l, depth+1, False)
             l[x][y] = '_'
-
             bestscore = max(score, bestscore)
         return(bestscore)
 
@@ -92,23 +94,23 @@ def minmax(l, depth, isMaximizing):
 
         return(bestscore)
 
+
 def computer_move(l):
     blank_moves = possible_moves(l)
     k = []
-    if len(blank_moves)>0:
+    if len(blank_moves)>=0:
         bestscore = 100
         for [x,y] in blank_moves:
             l[x][y]= 'o'
             score = minmax(l, 0, False)
             l[x][y]= '_'
             if score <= bestscore:
-                print(x,y)
                 bestscore = score
-                print(bestscore)
-                k.append([x,y])
+                k = [x, y]
         
-        move = random.choice(k)
-        l[move[0]][move[1]] = 'o'
+        # move = random.choice(k)
+        # l[move[0]][move[1]] = 'o'
+        l[k[0]][k[1]] = 'o'
         print("computer played its move!")
         print_grid(l)
     else:
@@ -117,19 +119,19 @@ def computer_move(l):
 
 def player_move():
     w = winning_conditions(grid)
-    while w == 'd':
+    while len(possible_moves(grid))>0:
         print("where do you want to put your mark?")
         print("Insert in as row, column")
         x = ""
         y = ""
         x, y = map(int,input().split(" "))
         # try: 
-        if x<=3 or x>=1 and y<=3 or y>=1:
-            # grid[x][y] = 'x'
-            make_grid(x, y)
+        if x<=2 or x>=0 and y<=2 or y>=0:
+            grid[x][y] = 'x'
+            # make_grid(x, y)
             computer_move(grid)
             w = winning_conditions(grid)
-            print("wining condition",w)
+
             # print_grid(grid)
 
         # except Exception as e:

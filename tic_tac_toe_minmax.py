@@ -44,7 +44,7 @@ scores = {
     'tie'  : 0
 }
 
-def minmax(l, depth, isMaximizing):
+def minmax(l, depth, alpha, beta,isMaximizing):
     result = winning_conditions(l)
 
     if result != "null":
@@ -56,9 +56,14 @@ def minmax(l, depth, isMaximizing):
         blank_spaces = possible_moves(l)
         for [x,y] in blank_spaces:
             l[x][y] = 'X'
-            score = minmax(l, depth+1, False)
+            score = minmax(l, depth+1, alpha, beta, False)
+            alpha = max(alpha, score)
             l[x][y] = '_'
             bestscore = max(score, bestscore)
+            if beta <= alpha:
+                break
+
+            
         
         return(bestscore)
 
@@ -68,21 +73,28 @@ def minmax(l, depth, isMaximizing):
         blank_spaces = possible_moves(l)
         for [x,y] in blank_spaces:
             l[x][y] = 'o'
-            score = minmax(l, depth+1, True)
+            score = minmax(l, depth+1, alpha, beta, True)
+            beta = min(beta, score)
             l[x][y] = '_'
             bestscore = min(score,bestscore)
+            if beta <= alpha:
+                break
+
+            
         
         return(bestscore)
 
 def computer_move(l):
     blank_moves = possible_moves(l)
     k = []
+    alpha = -100
+    beta = 100
     
     if len(blank_moves)>0:
         bestscore = 100
         for [x,y] in blank_moves:
             l[x][y]= 'o'
-            score = minmax(l, 0, True)
+            score = minmax(l, 0, alpha, beta, True)
             l[x][y]= '_'
             if score < bestscore:
                 bestscore = score
