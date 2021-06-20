@@ -18,10 +18,10 @@ Checks all the blank spaces(available spaces) in the grid.
 #### 3) def minmax()
 
 ##### In Minmax:
-In simple terms, it checks for each condition in the game. There are two parts, first part is maximizing player (Human) and other is minimizing player. Both types first check for the blank spaces available, based on this, they check the score for each condition. The minimiser and maximizer play one after other. 
+In simple terms, it checks for each condition in the game. There are two parts, first part is maximizing player (Human) and other is minimizing player (AI).In both types, we first check for the blank spaces available. Based on this, they check the score for each condition. The minimiser and maximizer play one after other. 
 
 ##### In Minmax with alpha beta pruning:
-In alpha beta pruning, we pass extra two parameters (alpha and beta). These parameters stores the best value at that depth in the tree. Alpha stores best value for maximizer and beta stores best value for minimiser. In each case, we don't have to solve the entire tree. If the value at that depth is not useful for the minimiser/maximizer that branch of tree never gets played and hence saves the computational cost. 
+In alpha beta pruning, we pass two extra parameters (alpha and beta). These parameters store the best value at that particular depth in the tree. Alpha stores best value for maximizer and beta stores best value for minimiser. In each case, we don't have to solve the entire tree. If the value at that depth is not useful for the minimiser/maximizer that branch of tree never gets played and hence saves the computational cost. 
 
 ## References
 1) MIT Opencourseware: [Search: Games, Minimax, and Alpha-Beta](https://youtu.be/STjW3eH0Cik)
