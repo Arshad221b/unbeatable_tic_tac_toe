@@ -30,4 +30,4 @@ In alpha beta pruning, we pass extra two parameters (alpha and beta). These para
 
 ## How to run
 1) Run [tictactoe_minmax.py](https://github.com/Arshad221b/unbeatable_tic_tac_toe/blob/master/tictactoe_minmax.py) for Minmax
-2) Run [tic_tac_toe_minmax.py]()
+2) Run [tic_tac_toe_minmax.py](https://github.com/Arshad221b/unbeatable_tic_tac_toe/blob/master/tic_tac_toe_minmax.py) for Minmax with Alpha-Beta Pruning
