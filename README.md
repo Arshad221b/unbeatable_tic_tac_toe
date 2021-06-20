@@ -8,8 +8,8 @@ There are two algorithms,
 1) [With MinMax Algorithm](https://github.com/Arshad221b/Connect_4/blob/master/tictactoe_minmax.py)
 2) [With MinMax and Alpha-Beta Pruning](https://github.com/Arshad221b/Connect_4/blob/master/tic_tac_toe_minmax.py)
 
-### Details about each methods 
-#### 1) def winning_conditions(l)
+### Details about each method 
+#### 1) def winning_conditions()
 It checks for each winning condition possible in the game (horizontal, vertical, digonal). It returns the score for winning, losing and tie conditons.
 
 #### 2) def possible_moves()
