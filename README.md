@@ -1,7 +1,11 @@
 # Tic Tac Toe with Minmax (and alpha beta pruning)
 
 ## Demo
+
+<div align='center'>
 ![](ezgif.com-gif-maker.gif)
+
+</div>
 
 ## Functionality
 There are two algorithms, 
